@@ -1,0 +1,28 @@
+model:
+  embed_dim: 3
+  lossconfig:  # 测试时不需要用到这些损失配置参数，保留是为了兼容模型加载
+    disc_start: 50001
+    kl_weight: 0.000001
+    disc_weight: 0.5
+    disc_in_channels: 3
+  ddconfig:
+    double_z: True
+    z_channels: 3
+    resolution: [256, 256]  # 图片的分辨率必须和训练时保持一致
+    in_channels: 3  # 输入图片的通道数
+    out_ch: 3  # 输出图片的通道数
+    ch: 128
+    ch_mult: [1, 2, 4]
+    num_res_blocks: 2
+    attn_resolutions: []
+    dropout: 0.0
+  ckpt_path: '/home/chenhongyao/DiffusionEdge/output/cube_output/model-7.pt'  # 模型检查点的路径     /home/chenhongyao/DiffusionEdge/output/step0001/model-7.pt
+
+data:
+  name: dege
+  img_folder: '/home/data/chenhongyao/train_data_o/'  # 测试图像的路径  /home/data/chenhongyao/cube_data/rename_data/
+  augment_horizontal_flip: False  # 测试时不需要进行数据增强
+  batch_size: 1  # 通常测试使用 batch_size 为 1，确保每张图片单独处理
+
+trainer:
+  results_folder: '/home/data/chenhongyao/step1_output/test/ape'  # 输出重构图像的文件夹路径
