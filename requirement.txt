@@ -1,0 +1,12 @@
+accelerate                0.32.1
+mmcv                      1.7.1
+open3d                    0.16.0                
+opencv-python             4.8.0.76 
+pillow                    9.3.0
+pytorch-lightning         1.9.3
+python 3.8.5
+torch                     2.0.1
+torchvision               0.15.2
+tqdm                      4.66.2
+transforms3d              0.4.1
+scipy                     1.10.1
